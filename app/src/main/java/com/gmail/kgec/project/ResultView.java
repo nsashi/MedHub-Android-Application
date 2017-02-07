@@ -58,9 +58,10 @@ public class ResultView extends AppCompatActivity {
                 tr.setLayoutParams(param);
                 tr.setText(name);
                 l1.addView(tr);
+                tl.addView(l1);
             }
 
-            tl.addView(l1);
+
         } catch (JSONException e) {
            System.out.println("Error in try catch");
             e.printStackTrace();
