@@ -66,7 +66,7 @@ public class ResultView extends AppCompatActivity {
                 //l1.setBackgroundColor(draw);
                 final LinearLayout.LayoutParams param;
                 param = (new LinearLayout.LayoutParams((int) LinearLayout.LayoutParams.WRAP_CONTENT, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
-                TextView tr = new TextView(this);
+                final TextView tr = new TextView(this);
                 params.gravity = Gravity.CENTER_VERTICAL;
                 tr.setLayoutParams(param);
                 tr.setText(name);
@@ -77,28 +77,30 @@ public class ResultView extends AppCompatActivity {
                 btn.setId(j + 1);
                 btn.setText("More Details");
                 btn.setLayoutParams(param);
+                final MoreDetails md=new MoreDetails();
+
+                try
+                {
+                    md.nm=name;
+                    md.telephone=d.getString("Telephone");
+                    md.state=d.getString("State");
+                    md.location_cordinates=d.getString("Location_Coordinates");
+                    md.location=d.getString("Location");
+                    md.pincode=d.getString("Pincode");
+                    md.district=d.getString("District");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
                     {
-                    MoreDetails md=new MoreDetails();
+                        Toast.makeText(getApplicationContext(),"haha",Toast.LENGTH_SHORT).show();
+                       Intent thirdscreen=new Intent(getApplicationContext(),DetailView.class);
 
-                        try
-                        {
-                            md.nm=name;
-                            md.telephone=d.getString("Telephone");
-                            md.state=d.getString("State");
-                            md.location_cordinates=d.getString("Location_Coordinates");
-                            md.location=d.getString("Location");
-                            md.pincode=d.getString("Pincode");
-                            md.district=d.getString("District");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                      Intent thirdscreen=new Intent(getApplicationContext(),DetailView.class);
                         thirdscreen.putExtra("MyClass", (Serializable) md);
                         startActivity(thirdscreen);
-                        
+
                     }
                 });
                 tl.addView(btn);
@@ -111,9 +113,9 @@ public class ResultView extends AppCompatActivity {
         }
 
 
-        
+
     }
 
-    
+
     }
 
