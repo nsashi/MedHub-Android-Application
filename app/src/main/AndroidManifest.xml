@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-          <activity android:name="com.gmail.kgec.project.ResultView"> </activity>
+          <activity android:name="com.gmail.kgec.project.ResultView"/>
     </application>
 
 </manifest>

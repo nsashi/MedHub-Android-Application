@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,14 +24,19 @@ public class ResultView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultview);
+        Toast.makeText(getApplicationContext(),"secondscreen..",Toast.LENGTH_SHORT).show();
         LinearLayout tl=(LinearLayout)findViewById(R.id.activity_listview);
         final LinearLayout.LayoutParams params;
         params = new LinearLayout.LayoutParams((int)LinearLayout.LayoutParams.MATCH_PARENT,(int)LinearLayout.LayoutParams.WRAP_CONTENT);
-        Intent i = getIntent();
+       Intent i = getIntent();
         String hjason = i.getStringExtra("passarg");
+        if(hjason==null){
+            Toast.makeText(getApplicationContext(),"String null..",Toast.LENGTH_SHORT).show();
+        }
+
         try {
             JSONObject h = new JSONObject(hjason);
-            JSONArray hname = h.getJSONArray("records");
+             JSONArray hname = h.getJSONArray("records");
 
             for (int j = 0; j < hname.length(); j++)
             {
@@ -56,6 +62,7 @@ public class ResultView extends AppCompatActivity {
 
             tl.addView(l1);
         } catch (JSONException e) {
+           System.out.println("Error in try catch");
             e.printStackTrace();
         }
 
