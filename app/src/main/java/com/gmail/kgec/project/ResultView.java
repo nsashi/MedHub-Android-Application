@@ -1,6 +1,6 @@
 package com.gmail.kgec.project;
 
-package com.example.saswati.hospitalproject;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -88,6 +88,17 @@ public class ResultView extends AppCompatActivity {
                     md.location=d.getString("Location");
                     md.pincode=d.getString("Pincode");
                     md.district=d.getString("District");
+                    md.mobilenumber=d.getString("Mobile_Number");
+                    md.emergencynum=d.getString("Emergency_Num");
+                    md.ambulancenum=d.getString("Ambulance_Phone_No");
+                    md.bloodbankphn=d.getString("Bloodbank_Phone_No");
+                    md.hospitalfax=d.getString("Hospital_Fax");
+                    md.website=d.getString("Website");
+                    md.specialities=d.getString("Specialties");
+                    md.facilities=d.getString("Facilities");
+                    md.numdoc=d.getString("Number_Doctor");
+                    md.totbed=d.getString("Total_Num_Beds");
+                    md.numprivateward=d.getString("Number_Private_Wards");
 
 
                 btn.setOnClickListener(new View.OnClickListener() {
