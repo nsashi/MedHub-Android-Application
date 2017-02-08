@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 
 public class ResultView extends AppCompatActivity {
-    LinearLayout l1;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -52,28 +52,46 @@ public class ResultView extends AppCompatActivity {
             for (int j = 0; j < hname.length(); j++) {
                 final JSONObject d = hname.getJSONObject(j);
                 final String name = d.getString("Hospital_Name");
+
+
                 GradientDrawable draw = new GradientDrawable();
                 draw.setShape(GradientDrawable.RECTANGLE);
                 draw.setStroke(3, Color.BLACK);
+                draw.setColor(Color.WHITE);
                 draw.setCornerRadius(8);
-                l1 = new LinearLayout(this);
+
+
+                LinearLayout l1 = new LinearLayout(this);
                 l1.setLayoutParams(params);
                 l1.setPadding(8, 8, 8, 8);
                 l1.setOrientation(LinearLayout.HORIZONTAL);
-                //l1.setBackgroundColor(draw);
+                l1.setBackground(draw);
+
                 final LinearLayout.LayoutParams param;
-                param = (new LinearLayout.LayoutParams((int) LinearLayout.LayoutParams.WRAP_CONTENT, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
+                param = (new LinearLayout.LayoutParams(0, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
                 final TextView tr = new TextView(this);
-                params.gravity = Gravity.CENTER_VERTICAL;
+               param.gravity = Gravity.CENTER_VERTICAL;
+                param.weight=5;
+              //  param.setMargins(0,0,0,16);
                 tr.setLayoutParams(param);
                 tr.setText(name);
+                tr.setTextSize(16);
+                tr.setTextColor(Color.BLACK);
                 l1.addView(tr);
-                tl.addView(l1);
+
+              //  tl.addView(l1);
 
                 final Button btn = new Button(this);
                 btn.setId(j + 1);
-                btn.setText("More Details");
-                btn.setLayoutParams(param);
+                btn.setText("Details");
+                final LinearLayout.LayoutParams paramb = (new LinearLayout.LayoutParams(130, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
+            //    paramb.weight=1;
+                paramb.gravity = Gravity.CENTER_VERTICAL;
+                btn.setLayoutParams(paramb);
+                btn.setElevation(10);
+
+
+
                 final MoreDetails md=new MoreDetails();
 
 
@@ -109,7 +127,9 @@ public class ResultView extends AppCompatActivity {
 
                     }
                 });
-                tl.addView(btn);
+                l1.addView(btn);
+             //   l1.setElevation(5);
+                tl.addView(l1);
             }
 
         }
