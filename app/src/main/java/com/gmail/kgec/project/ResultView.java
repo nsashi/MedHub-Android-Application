@@ -1,5 +1,6 @@
 package com.gmail.kgec.project;
 
+package com.example.saswati.hospitalproject;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -79,8 +80,7 @@ public class ResultView extends AppCompatActivity {
                 btn.setLayoutParams(param);
                 final MoreDetails md=new MoreDetails();
 
-                try
-                {
+
                     md.nm=name;
                     md.telephone=d.getString("Telephone");
                     md.state=d.getString("State");
@@ -88,17 +88,16 @@ public class ResultView extends AppCompatActivity {
                     md.location=d.getString("Location");
                     md.pincode=d.getString("Pincode");
                     md.district=d.getString("District");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
                     {
-                        Toast.makeText(getApplicationContext(),"haha",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"entered onclick"+md.nm
+                                ,Toast.LENGTH_SHORT).show();
                        Intent thirdscreen=new Intent(getApplicationContext(),DetailView.class);
 
-                        thirdscreen.putExtra("MyClass", (Serializable) md);
+                        thirdscreen.putExtra("MyClass",md);
                         startActivity(thirdscreen);
 
                     }
