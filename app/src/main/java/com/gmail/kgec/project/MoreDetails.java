@@ -1,4 +1,7 @@
 package com.gmail.kgec.project;
+
+
+
 import java.io.Serializable;
 
 /**
@@ -7,5 +10,5 @@ import java.io.Serializable;
 
 public class MoreDetails implements Serializable
 {
-public String location,location_cordinates,telephone,state,district,pincode,nm;
+public String location,location_cordinates,telephone,state,district,pincode,nm,mobilenumber,emergencynum,ambulancenum,bloodbankphn,hospitalfax,email,website,specialities,facilities,numdoc,totbed,numprivateward;
 }
