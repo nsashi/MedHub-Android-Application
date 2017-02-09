@@ -1,6 +1,6 @@
 package com.gmail.kgec.project;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
@@ -16,7 +16,7 @@ public class DetailView extends AppCompatActivity
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detailsview);
+        setContentView(R.layout.detailview);
 
 
         Toast.makeText(getApplicationContext(), "thirdscreen", Toast.LENGTH_SHORT).show();
@@ -26,6 +26,6 @@ public class DetailView extends AppCompatActivity
         Toast.makeText(getApplicationContext(),md1.pincode,Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(),md1.telephone,Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(),md1.nm,Toast.LENGTH_SHORT).show();
-        LinearLayout tl = (LinearLayout) findViewById(R.id.ln3);
+       // LinearLayout tl = (LinearLayout) findViewById(R.id.ln3);
     }
 }
