@@ -113,7 +113,7 @@ public class ResultView extends AppCompatActivity {
                     md.numdoc=d.getString("Number_Doctor");
                     md.totbed=d.getString("Total_Num_Beds");
                     md.numprivateward=d.getString("Number_Private_Wards");
-
+                     md.email=d.getString("Hospital_Primary_Email_Id");
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
