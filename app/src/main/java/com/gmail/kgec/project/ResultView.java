@@ -84,7 +84,7 @@ public class ResultView extends AppCompatActivity {
                 final Button btn = new Button(this);
                 btn.setId(j + 1);
                 btn.setText("Details");
-                final LinearLayout.LayoutParams paramb = (new LinearLayout.LayoutParams(130, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
+                final LinearLayout.LayoutParams paramb = (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, (int) LinearLayout.LayoutParams.WRAP_CONTENT));
             //    paramb.weight=1;
                 paramb.gravity = Gravity.CENTER_VERTICAL;
                 btn.setLayoutParams(paramb);
