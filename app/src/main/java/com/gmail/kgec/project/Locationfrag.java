@@ -1,4 +1,4 @@
-package com.example.saswati.hospitalproject;
+package com.gmail.kgec.project;
 
 import android.app.Fragment;
 import android.os.Bundle;
