@@ -24,7 +24,7 @@ import android.app.FragmentManager;
 public class DetailView extends AppCompatActivity
 {
 
-
+StringBuffer sb;
     TextView t;
     Button btn;
 
@@ -80,6 +80,9 @@ public class DetailView extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),MapView.class);
+                Toast.makeText(getApplicationContext(),"going to map ",Toast.LENGTH_SHORT).show();
+
+                i.putExtra("pass",md1);
                 startActivity(i);
             }
         });
