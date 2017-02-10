@@ -61,13 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 con=(HttpURLConnection)url.openConnection();
                 con.connect();
 
+
                 InputStream input=con.getInputStream();
-                dialog.dismiss();
                 br=new BufferedReader(new InputStreamReader(input));
                 buf=new StringBuffer();
                 while((line=br.readLine() )!=null){
                     buf.append(line);
                 }
+                dialog.dismiss();
+
 
                 return buf.toString();
 
@@ -99,9 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
             String str="{\"help\":\"Search a datastore table. :param resource_id: id or alias of the data that is going to be selected.\",\"success\":false,\"total_records\":\"30273\",\"count\":0,\"fields\":{\"Location_Coordinates\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"255\",\"not null\":false,\"description\":\"\"},\"Location\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"255\",\"not null\":false,\"description\":\"\"},\"Hospital_Name\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"100\",\"not null\":false,\"description\":\"\"},\"Hospital_Category\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Hospital_Care_Type\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Discipline_Systems_of_Medicine\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Address_Original_First_Line\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"255\",\"not null\":false,\"description\":\"\"},\"State\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"30\",\"not null\":false,\"description\":\"\"},\"District\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Subdistrict\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Pincode\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"10\",\"not null\":false,\"description\":\"\"},\"Telephone\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Mobile_Number\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Emergency_Num\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Ambulance_Phone_No\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Bloodbank_Phone_No\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Hospital_Fax\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Hospital_Primary_Email_Id\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"100\",\"not null\":false,\"description\":\"\"},\"Website\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"255\",\"not null\":false,\"description\":\"\"},\"Specialties\":{\"type\":\"mediumblob\",\"size\":\"normal\",\"not null\":false,\"description\":\"\"},\"Facilities\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"255\",\"not null\":false,\"description\":\"\"},\"Accreditation\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Hospital_Regis_Number\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"50\",\"not null\":false,\"description\":\"\"},\"Number_Doctor\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"20\",\"not null\":false,\"description\":\"\"},\"Total_Num_Beds\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"10\",\"not null\":false,\"description\":\"\"},\"Number_Private_Wards\":{\"type\":\"varchar\",\"size\":\"normal\",\"length\":\"10\",\"not null\":false,\"description\":\"\"}},\"records\":[]}";
             if(s.equals(str))
-                Toast.makeText(getApplicationContext()," no valid district enetered(check the spelling) ",Toast.LENGTH_SHORT).show();
+            {
+
+
+                Toast.makeText(getApplicationContext()," no valid district enetered(check the spelling) ",Toast.LENGTH_SHORT).show();}
 
             else {
+
                 Intent nextscreen=new Intent(getApplicationContext(),ResultView.class);
                 nextscreen.putExtra("passarg", s);
                 startActivity(nextscreen);
