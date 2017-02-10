@@ -5,8 +5,9 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-
-
+import android.widget.LinearLayout;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class DetailView extends AppCompatActivity
 StringBuffer sb;
     TextView t;
     Button btn;
-
+    LinearLayout tl;
     String item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,20 @@ StringBuffer sb;
         Toast.makeText(getApplicationContext(), "thirdscreen", Toast.LENGTH_SHORT).show();
         final MoreDetails md1;
         md1 = (MoreDetails) getIntent().getSerializableExtra("MyClass");
+        tl = (LinearLayout) findViewById(R.id.loc);
+        GradientDrawable draw = new GradientDrawable();
+        draw.setShape(GradientDrawable.RECTANGLE);
+        draw.setStroke(6, Color.BLUE);
+        draw.setColor(Color.WHITE);
+        //draw.setCornerRadius(8);
+        tl.setBackground(draw);
+        tl = (LinearLayout) findViewById(R.id.con);
+        tl.setBackground(draw);
+        tl = (LinearLayout) findViewById(R.id.fac);
+        tl.setBackground(draw);
+        t = (TextView) findViewById(R.id.l1);
+        t.setText(md1.district);
+        t = (TextView) findViewById(R.id.l2);
         btn=(Button)findViewById(R.id.map);
         t = (TextView) findViewById(R.id.hos_name);
         t.setText(md1.nm);
