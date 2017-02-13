@@ -35,7 +35,7 @@ public class ResultView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultview);
-        Toast.makeText(getApplicationContext(), "secondscreen..", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(), "secondscreen..", Toast.LENGTH_SHORT).show();
         LinearLayout tl = (LinearLayout) findViewById(R.id.activity_listview);
         final LinearLayout.LayoutParams params;
         params = new LinearLayout.LayoutParams((int) LinearLayout.LayoutParams.MATCH_PARENT, (int) LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -118,8 +118,8 @@ public class ResultView extends AppCompatActivity {
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v)
                     {
-                        Toast.makeText(getApplicationContext(),"entered onclick"+md.nm
-                                ,Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplicationContext(),"entered onclick"+md.nm
+                      //          ,Toast.LENGTH_SHORT).show();
                        Intent thirdscreen=new Intent(getApplicationContext(),DetailView.class);
 
                         thirdscreen.putExtra("MyClass",md);

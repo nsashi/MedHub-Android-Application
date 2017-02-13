@@ -34,7 +34,7 @@ StringBuffer sb;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailview);
-        Toast.makeText(getApplicationContext(), "thirdscreen", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getApplicationContext(), "thirdscreen", Toast.LENGTH_SHORT).show();
         final MoreDetails md1;
         md1 = (MoreDetails) getIntent().getSerializableExtra("MyClass");
         tl = (LinearLayout) findViewById(R.id.loc);
@@ -95,7 +95,7 @@ StringBuffer sb;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),MapView.class);
-                Toast.makeText(getApplicationContext(),"going to map ",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(),"going to map ",Toast.LENGTH_SHORT).show();
 
                 i.putExtra("pass",md1);
                 startActivity(i);

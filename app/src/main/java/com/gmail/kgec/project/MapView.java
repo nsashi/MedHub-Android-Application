@@ -47,7 +47,7 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback {
             sb=new StringBuffer(loc);
             sb.append(","+ hos.district+ hos.state);
             location=sb.toString();
-            Toast.makeText(getApplicationContext(), "Success.."+location, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getApplicationContext(), "Success.."+location, Toast.LENGTH_SHORT).show();
             initMap();
         }
     }
@@ -75,26 +75,32 @@ public class MapView extends AppCompatActivity implements OnMapReadyCallback {
         double lat = 0, lng = 0;
         map = googleMap;
 
-
+        int x=0;
         Geocoder gc=new Geocoder(this);
         try {
             List<Address> list = gc.getFromLocationName(location, 1);
+            if(!list.isEmpty()) {
 
                 Address add = list.get(0);
 
                 lat = add.getLatitude();
                 lng = add.getLongitude();
-
+            }
+            else{
+                x=1;
+            }
 
 
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(),"No location",Toast.LENGTH_SHORT).show();
         }
         goToLocation(lat,lng,16);
-        MarkerOptions options=new MarkerOptions()
-                .title(location)
-                .position(new LatLng(lat,lng));
-        map.addMarker(options);
+        if(x==0) {
+            MarkerOptions options = new MarkerOptions()
+                    .title(location)
+                    .position(new LatLng(lat, lng));
+            map.addMarker(options);
+        }
     }
 
 
